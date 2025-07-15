@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Burn on Read</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              surface: "var(--color-surface)",
+              accent: "var(--color-accent)",
+              "accent-hover": "var(--color-accent-hover)",
+              border: "var(--color-border)",
+            },
+            fontFamily: {
+              sans: ["TikTok Sans", "system-ui", "sans-serif"],
+              mono: ["Fira Code", "monospace"],
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=TikTok+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body class="p-4 font-sans" style="color: var(--color-text-primary)">
+    <main
+      class="min-h-screen flex flex-col justify-center items-center text-center"
+    >
+      <h1
+        class="text-7xl font-bold mb-12 bg-[var(--color-accent)] text-transparent bg-clip-text tracking-tight"
+      >
+        🔥 BURN ON READ 🔥
+      </h1>
+      <div class="w-full max-w-3xl">{% block content %}{% endblock %}</div>
+      <div class="mt-8">{% block after_content %}{% endblock %}</div>
+    </main>
+  </body>
+</html>

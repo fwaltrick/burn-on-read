@@ -1,0 +1,15 @@
+{% extends "_layout.html" %}
+{%
+  from '_macros.html' import
+  secondaryButton
+%}
+{% block content %}
+  <h2 class="text-red-400 text-3xl font-bold mb-6">404 - Not Found</h2>
+  <p class="text-gray-400 text-lg mb-6">
+    This message has already been read and burned, or the link is invalid.
+  </p>
+{% endblock %}
+{% block after_content %}{{
+  secondaryButton("Create a new
+  message")
+}}{% endblock %}

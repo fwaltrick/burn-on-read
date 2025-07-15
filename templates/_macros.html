@@ -1,0 +1,10 @@
+{% macro secondaryButton(text) %}
+  <form action="/">
+    <button
+      type="submit"
+      class="inline-block py-3 px-8 font-bold rounded-lg border-2 border-accent text-accent transition-all duration-200 hover:opacity-80 active:scale-95"
+    >
+      {{ text }}
+    </button>
+  </form>
+{% endmacro %}

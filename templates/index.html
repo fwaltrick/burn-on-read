@@ -1,0 +1,20 @@
+{% extends "_layout.html" %}
+{% block content %}
+  <div class="bg-[var(--color-surface)] p-8 rounded-xl shadow-lg">
+    <form action="/create" method="POST">
+      <textarea
+        name="content"
+        required
+        placeholder="Your secret message..."
+        style="min-height: 180px"
+        class="w-full p-4 bg-[var(--color-bg)] rounded-lg border border-border focus:ring-accent focus:border-accent focus:outline-none"
+      ></textarea>
+      <button
+        type="submit"
+        class="w-full mt-6 py-4 bg-accent text-[var(--color-bg)] font-bold rounded-lg transition-all duration-200 hover:bg-accent-hover active:scale-95"
+      >
+        Create Secret Link
+      </button>
+    </form>
+  </div>
+{% endblock %}

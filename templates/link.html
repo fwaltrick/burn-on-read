@@ -1,0 +1,64 @@
+{% extends "_layout.html" %}
+
+{% block content %}
+  <h2 class="text-3xl font-bold mb-2">Link Generated!</h2>
+  <p class="text-gray-400 mb-8">Share this link. It can only be opened once.</p>
+
+  <div class="flex items-center gap-4">
+    <input
+      type="text"
+      id="share-link-input"
+      value="{{ link }}"
+      readonly
+      class="flex-grow p-4 bg-[var(--color-bg)] font-mono text-center rounded-lg border border-border"
+      style="color: var(--color-text-subtle)"
+    />
+
+    <button
+      id="copy-button"
+      class="py-4 px-6 bg-accent text-black font-bold rounded-lg transition-all duration-200 hover:bg-accent-hover active:scale-95"
+    >
+      Copy
+    </button>
+  </div>
+{% endblock %}
+{% block after_content %}
+  <form action="/">
+    <button
+      type="submit"
+      class="inline-block py-3 px-8 font-bold rounded-lg border-2 border-accent text-accent transition-all duration-200 hover:opacity-80 active:scale-95"
+    >
+      Create another message
+    </button>
+  </form>
+  <script>
+    document.addEventListener("DOMContentLoaded", (event) => {
+      const copyButton = document.getElementById("copy-button");
+      const linkInput = document.getElementById("share-link-input");
+
+      copyButton.addEventListener("click", () => {
+        if (!navigator.clipboard) {
+          console.error("Clipboard API not available.");
+          linkInput.select();
+          alert("Could not copy automatically. Please copy the link manually.");
+          return;
+        }
+
+        navigator.clipboard
+          .writeText(linkInput.value)
+          .then(() => {
+            const originalText = copyButton.innerText;
+            copyButton.innerText = "Copied!";
+
+            setTimeout(() => {
+              copyButton.innerText = originalText;
+            }, 1500);
+          })
+          .catch((err) => {
+            console.error("Failed to copy text: ", err);
+            alert("An error occurred while trying to copy the link.");
+          });
+      });
+    });
+  </script>
+{% endblock %}

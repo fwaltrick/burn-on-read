@@ -1,0 +1,18 @@
+{% extends "_layout.html" %}
+{%
+  from '_macros.html' import
+  secondaryButton
+%}
+{% block content %}
+  <h2 class="text-3xl font-bold mb-2">Message Revealed</h2>
+  <p class="text-gray-400 mb-6">It has now been permanently destroyed.</p>
+  <pre
+    class="bg-[#121212] p-6 rounded-xl text-left text-gray-400 whitespace-pre-wrap font-mono"
+  >
+{{ content }}</pre
+  >
+{% endblock %}
+{% block after_content %}{{
+  secondaryButton("Create a new
+  message")
+}}{% endblock %}
